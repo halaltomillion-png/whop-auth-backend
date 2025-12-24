@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 // LOGIN START
 app.get("/login", (req, res) => {
   const whopUrl =
-    "https://whop.com/oauth/authorize" +
+    "https://api.whop.com/oauth/authorize" +
     `?client_id=${CLIENT_ID}` +
     `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
     `&response_type=code`;
