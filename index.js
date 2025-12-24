@@ -6,7 +6,7 @@ const app = express();
 const CLIENT_ID = process.env.WHOP_CLIENT_ID;
 const REDIRECT_URI = process.env.WHOP_REDIRECT_URI;
 
-// TEST ROUTE
+// TEST
 app.get("/", (req, res) => {
   res.send("Backend läuft");
 });
@@ -24,7 +24,7 @@ app.get("/login", (req, res) => {
   res.redirect(whopUrl);
 });
 
-// CALLBACK VON WHOP ✅
+// CALLBACK
 app.get("/callback", (req, res) => {
   const code = req.query.code;
 
@@ -39,4 +39,7 @@ app.get("/callback", (req, res) => {
   `);
 });
 
-export default app;
+// 🔥 WICHTIG FÜR VERCEL
+export default function handler(req, res) {
+  app(req, res);
+}
