@@ -19,7 +19,7 @@ app.get("/login", (req, res) => {
     `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
     `&response_type=code` +
     `&scope=read_user` +
-    `&product_id=prod_LWv6cXhf3FDRE`;
+    `&experience_id=exp_5YSo58Z4fCMAeN`;
 
   res.redirect(whopUrl);
 });
