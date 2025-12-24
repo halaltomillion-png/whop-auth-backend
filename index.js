@@ -23,18 +23,15 @@ app.get("/login", (req, res) => {
 });
 
 // CALLBACK VON WHOP
-app.get("/callback", (req, res) => {
-  const code = req.query.code;
+app.get("/login", (req, res) => {
+  const whopUrl =
+    "https://whop.com/oauth/authorize" +
+    `?client_id=${CLIENT_ID}` +
+    `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
+    `&response_type=code` +
+    `&scope=identify`;
 
-  if (!code) {
-    return res.send("Kein Code von Whop erhalten");
-  }
-
-  res.send(`
-    <h1>Login erfolgreich</h1>
-    <p>Whop hat geantwortet.</p>
-    <p>Code: ${code}</p>
-  `);
+  res.redirect(whopUrl);
 });
 
 export default app;
