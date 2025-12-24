@@ -17,7 +17,8 @@ app.get("/login", (req, res) => {
     "https://whop.com/oauth/authorize" +
     `?client_id=${CLIENT_ID}` +
     `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
-    `&response_type=code`;
+    `&response_type=code` +
+    `&scope=identify`;
 
   res.redirect(whopUrl);
 });
